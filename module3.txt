@@ -1,0 +1,53 @@
+L EXCLUSION:: (SEMAPHORE)
+There should be mutual exclusion when 2 student are trying to get wash clothes where only one washer man is free. And  when 2 washer man simultaneously complete the wash then 2 student will pay at the same time but there is only one cashier. P(coord) and v(coord) shown this.
+
+
+
+
+STUDENT:: MODULE 1                
+P( max_capacity );
+// enter wash house
+P( chair );
+// sit on chair
+P( wash platform );
+// get up from chair
+V( chair );
+// reserve wash platform
+V( student_ready );
+P( finished );
+// leave wash platform
+V( leave_platform);
+// pay
+V( payment );
+P( receipt );
+// exit wash house
+V( max_capacity );
+
+WASHER MAN :: MODULE 2
+
+P( student_ready );
+
+P( coord );
+
+// wash cloth
+
+V( coord );
+
+V( finished );
+// wait for student to leave
+P( leave_b_chair );
+
+V( wash platform );
+
+CASHIER: MODULE 3
+
+P( payment );
+
+P( coord );
+
+// accept payment
+
+V( coord );
+V( receipt );
+
+
