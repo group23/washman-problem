@@ -1,0 +1,59 @@
+OVERVIEW CODE(PSEUDO)
+
+矽 wash house and chair capacity
+雾务 max_capacity
+(: = 15)
+雾务 chair (: = 4)
+矽 wash platform capacity
+雾务 wash _platform (: = 3)
+矽 Ensuring student伍西s cloth are
+in wash platform
+雾务 student_ready (: = 0)
+雾务 finished (: = 0)
+雾务 leave_b_chair
+(: = 0)
+矽 Paying and receiving
+雾务 payment (: = 0)
+雾务 receipt (:= 0)
+矽 Coordinating washerman
+functions
+雾务 coord (:= 0)
+STUDENT:: MODULE 1                
+P( max_capacity );
+// enter wash house
+P( chair );
+// sit on chair
+P( wash platform );
+// get up from chair
+V( chair );
+// reserve wash platform
+V( student_ready );
+P( finished );
+// leave wash platform
+V( leave_b_chair);
+// pay
+V( payment );
+P( receipt );
+// exit wash house
+V( max_capacity );
+WASHER MAN :: MODULE 2
+
+P( student_ready );
+P( coord );
+// wash cloth
+V( coord );
+V( finished );
+// wait for student to leave
+P( leave_b_chair );
+
+V( wash platform );
+CASHIER: MODULE 3
+
+P( payment );
+P( coord );
+// accept payment
+V( coord );
+V( receipt );
+
+
+
