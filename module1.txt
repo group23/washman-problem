@@ -1,0 +1,45 @@
+WASHERMAN PROBLEM:-
+3 washer man, 3 wash platform, 1 cash counter.
+Waiting House:  4 students on chair, additional student  in  laundry room.
+Total number of student  15 at a time.
+A student:
+Îù Will not enter the laundry  if it is filled to capacity
+Îù Takes a seat on the chair, or stands if chair is filled
+Îù When a washer man is free, the student waiting longest on chair is served
+The student standing the longest takes up seat on the chair. (Starvation concept)
+Îù When a studentÎéÎ÷s clothes is washed, any washer man can accept payment but
+because of the single cash counter, only one payment is accepted at a time (semaphore concept)
+
+process:-
+ washer man, wash plateform, cash counter.
+ READY QUEUE: 4 students on chair. 
+ JOB QUEUE: additional student in laundry room.
+ BUSY WAITING: 4 students  again and again try to invoke the function wash_cloth. Because they are unaware of each other, so processorÎéÎ÷s (3 washer man)  time will waste to response them. 
+ Solution of this problem is ÎíÎñ SPIN LOCK.
+ When student is ready to pay then 2 student can simultaneously pay . but there is only one cash counter so only one washer man can paid on at a time,(CRITICAL SECTION)  problem is removed by implementing (SEMAPHORE)
+
+ Îù WASHING HOUSE and CHAIR capacity
+ ÎíÎñ max_capacity (initial value = 15)
+ ÎíÎñ Chair (initial value = 4)
+ Îù Washer man chair capacity
+ ÎíÎñ washer_platform(initial value = 3)
+ Îù Ensuring students cloths are with washer man.
+ ÎíÎñ student_ready (initial value = 0)
+ Îù washerman waits for student.
+ ÎíÎñ finished (initial value = 0)
+ Îù student waits for cleaning  the clothes.
+ ÎíÎñ leave_b_chair (initial value = 0)
+ Îù washerman waits for wash platform to empty
+ Îù Paying and receiving
+ ÎíÎñ payment (initial value = 0)
+ Îù cashier waits for student  to pay
+ ÎíÎñ receipt (initial value = 0)
+ Îù student waits for cashier to acknowledge
+ Îù Coordinating washerman functions
+ ÎíÎñ coord (initial value = 0)
+ Îù wait for awasheman resource to free up
+  
+
+
+
+
